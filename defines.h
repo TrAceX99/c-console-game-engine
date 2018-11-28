@@ -1,0 +1,4 @@
+#define _UNICODE
+
+#define WINDOW_WIDTH 120
+#define WINDOW_HEIGHT 40
