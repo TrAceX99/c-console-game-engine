@@ -6,9 +6,9 @@
 
 using namespace std;
 
-const int screenSize = WINDOW_WIDTH * WINDOW_HEIGHT;
 const SMALL_RECT screenPos = {0, 0, 119, 39};
 
+wchar_t playerSprite[] = L"#";
 
 int main()
 {
@@ -27,6 +27,7 @@ int main()
     auto t2 = chrono::system_clock::now();
 
     Player player(10, 10);
+    player.sprite.setImage(playerSprite, 1, 1);
 
     DWORD bytesWritten;
     while(1) {
