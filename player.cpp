@@ -6,7 +6,8 @@ Player::Player(double X, double Y) {
     position.y = Y;
 }
 
-void Player::update(double deltaTime) {
+void Player::Update(double& deltaTime) {
+    Object::Update(deltaTime);
     // Get WASD input
     int deltaX = GetAsyncKeyState('D') ? 1 : 0 +
     GetAsyncKeyState('A') ? -1 : 0;

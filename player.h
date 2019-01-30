@@ -6,5 +6,5 @@ class Player : public Object
 {
     public:
         Player(double startingX, double startingY);
-        void update(double deltaTime);
+        void Update(double& deltaTime);
 };
