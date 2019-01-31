@@ -2,6 +2,7 @@
 #define DEFINES_H
 
 #define _UNICODE
+#define UNICODE
 #define NULL 0
 
 #define WINDOW_WIDTH 120
@@ -9,6 +10,7 @@
 
 #define NOMINMAX
 
+#include <vector>
 #include <algorithm>
 
 const int screenSize = WINDOW_WIDTH * WINDOW_HEIGHT;

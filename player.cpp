@@ -1,11 +1,6 @@
 #include "player.h"
 #include <windows.h>
 
-Player::Player(double X, double Y) {
-    position.x = X;
-    position.y = Y;
-}
-
 void Player::Update(double& deltaTime) {
     Object::Update(deltaTime);
     // Get WASD input

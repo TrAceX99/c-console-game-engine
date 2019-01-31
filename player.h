@@ -4,7 +4,7 @@
 
 class Player : public Object
 {
+    using Object::Object;
     public:
-        Player(double startingX, double startingY);
         void Update(double& deltaTime);
 };
