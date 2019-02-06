@@ -11,6 +11,7 @@
 #define NOMINMAX
 
 #include <vector>
+#include <array>
 #include <algorithm>
 
 const int screenSize = WINDOW_WIDTH * WINDOW_HEIGHT;

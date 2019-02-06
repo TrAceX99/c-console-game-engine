@@ -4,20 +4,21 @@ Sprite::Sprite() {
     width = 0;
     height = 0;
     origin = {0, 0};
+    image = nullptr;
 }
 
-Sprite::Sprite(const wchar_t _image[], int _width, int _height, ipoint_t _origin) {
+Sprite::Sprite(const wchar_t** _image, const int& _width, const int& _height, const ipoint_t& _origin) {
     width = _width;
     height = _height;
     image = _image;
     origin = _origin;
 }
 
-void Sprite::SetImage(const wchar_t _image[], int _width, int _height)
+void Sprite::SetImage(const int& i, const wchar_t* _image, const int& _width, const int& _height)
 {
     width = _width;
     height = _height;
-    image = _image;
+    image[i] = _image;
 }
 
 void Sprite::SetOriginCenter() {
@@ -25,7 +26,7 @@ void Sprite::SetOriginCenter() {
     origin.y = height / 2;
 }
 
-void Sprite::Draw(int x, int y) {
+void Sprite::Draw(const int& x, const int& y) const {
     if (!image)
         return;
 
@@ -41,7 +42,7 @@ void Sprite::Draw(int x, int y) {
     {
         for (int j = 0; j < width - cutoutLeft - cutoutRight; j++)
         {
-            if (image[pixel]) activeBuffer[location] = image[pixel];
+            if (image[imageIndex][pixel]) activeBuffer[location] = image[imageIndex][pixel];
             pixel++;
             location++;
         }

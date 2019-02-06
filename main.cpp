@@ -3,18 +3,18 @@
 #include <Windows.h>
 #include <chrono>
 #include <string>
-#include "player.h"
-#include "uiobject.h"
+#include "objectClasses.h"
+#include "staticData.h"
+
+using namespace std;
 
 const SMALL_RECT screenPos = {0, 0, 119, 39};
 
-Sprite sprite1(L"/***\\| × |\\___/", 5, 3, {2, 1});
-Sprite sprite2(L" ##### #+++++##+-o-+##+++++# ##### ", 7, 5);
+//Sprite sprite1(tes, 5, 3, {2, 1});
+/*Sprite sprite2(L" ##### #+++++##+-o-+##+++++# ##### ", 7, 5);
 Sprite playerspr(L"\0Wo\0\0\0\0|M>\0\0\0| \\\0\0PLAYER", 6, 4, {3, 2});
 Sprite text(L"*********************************----- This is an UI element -----*********************************", 33, 3);
-Sprite fpsSprite(L"", 10, 1);
-
-using namespace std;
+Sprite fpsSprite(L"", 10, 1);*/
 
 wchar_t *activeBuffer = nullptr;
 fpoint_t cameraPos = {0, 0};
@@ -36,11 +36,9 @@ int main()
     auto t1 = chrono::system_clock::now();
     auto t2 = chrono::system_clock::now();
 
-    Player player(fpoint_t(5, 5), &playerspr, 1);
-    Object prop1(fpoint_t(45.3, 27.7), &sprite1, 10);
-    Object prop2(fpoint_t(95.5, 17.2), &sprite2);
-    UIObject ui(fpoint_t(80, WINDOW_HEIGHT - 4), &text, 999);
-    UIObject fps(fpoint_t(1, 1), &fpsSprite, 1000);
+    Player player(fpoint_t(5, 5), Graphics::playerSpr);
+    Object prop(fpoint_t(11.7, 32.4), Graphics::sprite2, 10);
+    UIObject ui(fpoint_t(10, 32), Graphics::sprite1, 666);
 
     DWORD bytesWritten;
     while(1) {
@@ -56,8 +54,6 @@ int main()
         cameraPos.y -= (cameraPos.y + WINDOW_HEIGHT / 2 - player.position.y) * frameTime;
         
         for (int i = 0; i < screenSize; i++) screenBuffer[i] = 0;
-        wstring string = L"FPS: " + to_wstring(1/frameTime);
-        fpsSprite.image = string.c_str();
 
         Object::DrawAll();
 

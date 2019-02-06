@@ -3,8 +3,8 @@
 int Object::currID;
 std::vector<Object*> Object::objects;
 
-Object::Object(fpoint_t position, Sprite *spr, int depth) :
-    position(position), sprite(spr), depth(depth)
+Object::Object(fpoint_t position, Sprite& spr, int depth) :
+    position(position), sprite(&spr), depth(depth)
 {
     id = currID++;
     objects.push_back(this);
